@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { ChatGPTService } from '../services/chatgpt.service';
+import { ChatGPTRepository } from '../repository/chatgpt.repository';
 
-const chatGPTService = new ChatGPTService();
+const chatGPTRepository = new ChatGPTRepository();
 
 export const askQuestion = async (req: Request, res: Response) => {
   try {
@@ -11,7 +11,7 @@ export const askQuestion = async (req: Request, res: Response) => {
       return res.status(400).json({ error: 'La pregunta es requerida' });
     }
 
-    const response = await chatGPTService.getResponse(question, productContext);
+    const response = await chatGPTRepository.getResponse(question, productContext);
     return res.json({ response });
   } catch (error) {
     console.error('Error en el controlador:', error);

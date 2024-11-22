@@ -1,6 +1,6 @@
 import OpenAI from 'openai';
 
-export class ChatGPTService {
+export class ChatGPTRepository {
   private openai: OpenAI;
 
   constructor() {

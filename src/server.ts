@@ -10,7 +10,8 @@ import { chatRouter } from './routes/chat.routes';
 // Cargar variables de entorno
 
 
-const app = express();
+export const createServerExpress = () => {
+  const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware
@@ -36,3 +37,4 @@ app.get('/health', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor ejecutándose en el puerto ${PORT}`);
 });
+};
