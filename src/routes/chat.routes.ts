@@ -1,6 +1,10 @@
-import { Router } from 'express';
+import Express from 'express';
 import { askQuestion } from '../controllers/chat.controller';
 
-export const chatRouter = Router();
+export const chatRouter = () => {
+    const router = Express.Router();
 
-chatRouter.post('/ask', askQuestion);
+    router.post('/ask', askQuestion);
+
+    return router;
+}

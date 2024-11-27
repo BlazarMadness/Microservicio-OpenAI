@@ -6,15 +6,12 @@ import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import { chatRouter } from './routes/chat.routes';
-
-import swaggerUi from 'swagger-ui-express';
-import { swaggeroptions } from '../docs/swaggerConfig';
 import middleware404 from './middlewares/middlewares';
 
 
 
 // Cargar variables de entorno
-const PORT = process.env.PORT || 3003;
+
 
 export const createServerExpress = () => {
   const app = express();
@@ -32,14 +29,13 @@ export const createServerExpress = () => {
   app.use(limiter);
 
   // Rutas
-  app.use('/api/chat', chatRouter);
+  app.use('/api/chat', chatRouter());
 
-  // Ruta para acceder a la documentación de Swagger
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggeroptions));
 
   app.use(middleware404);
+
+  const PORT = process.env.PORT || 3003;
   app.listen(PORT, () => {
     console.log(`Servidor ejecutándose en el puerto ${PORT}`);
-    console.log(`Documentación disponible en http://localhost:${PORT}/api-docs`);
   });
 };
