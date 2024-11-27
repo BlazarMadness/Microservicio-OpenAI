@@ -9,6 +9,7 @@ import { chatRouter } from './routes/chat.routes';
 
 import swaggerUi from 'swagger-ui-express';
 import { swaggeroptions } from '../docs/swaggerConfig';
+import middleware404 from './middlewares/middlewares';
 
 
 
@@ -35,8 +36,8 @@ export const createServerExpress = () => {
 
   // Ruta para acceder a la documentación de Swagger
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggeroptions));
-  
 
+  app.use(middleware404);
   app.listen(PORT, () => {
     console.log(`Servidor ejecutándose en el puerto ${PORT}`);
     console.log(`Documentación disponible en http://localhost:${PORT}/api-docs`);
