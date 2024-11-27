@@ -2,7 +2,8 @@ import { ChatGPTRepository } from '../repository/chatgpt.service';
 
 async function main() {
   try {
-    const ChatGPTRepository = new ChatGPTRepository();
+    //se modifico
+    const chatGPTRepository = new ChatGPTRepository();
     
     // Ejemplo 1: Pregunta simple sobre un medicamento
     const question1 = "¿Cuáles son los efectos secundarios comunes del paracetamol?";
