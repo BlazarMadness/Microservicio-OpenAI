@@ -17,8 +17,8 @@ export const createServerExpress = () => {
   const app = express();
 
   // Middleware
-  app.use(helmet());
   app.use(cors());
+  app.use(helmet());
   app.use(express.json());
 
   // Rate limiting
