@@ -13,7 +13,7 @@ import { swaggeroptions } from '../docs/swaggerConfig';
 
 
 // Cargar variables de entorno
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3003;
 
 export const createServerExpress = () => {
   const app = express();
