@@ -1,5 +1,5 @@
 export const chatGPTDoc = {
-    "post": {
+    post: {
       "summary": "Realiza una pregunta al modelo ChatGPT para obtener información acerca de los productos de la tienda QuickPharmacy.",
       "tags": ["Chat"],
       "description": "Recibe una pregunta en formato JSON y devuelve la respuesta generada por la API de ChatGPT.",

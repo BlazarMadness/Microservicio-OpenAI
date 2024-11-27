@@ -8,9 +8,7 @@ import rateLimit from 'express-rate-limit';
 import { chatRouter } from './routes/chat.routes';
 
 import swaggerUi from 'swagger-ui-express';
-import swaggerDoc from '../docs/swaggerConfig';
-
-
+import { swaggeroptions } from '../docs/swaggerConfig';
 
 
 
@@ -36,7 +34,7 @@ export const createServerExpress = () => {
   app.use('/api/chat', chatRouter);
 
   // Ruta para acceder a la documentación de Swagger
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggeroptions));
   
 
   app.listen(PORT, () => {
